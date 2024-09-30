@@ -2,9 +2,16 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateForm } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { addUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = ()=>{
+
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const [isSignInForm, setIsSignInForm] = useState(true)
 
@@ -14,6 +21,7 @@ const Login = ()=>{
         setIsSignInForm(!isSignInForm);
     }
 
+    const name = useRef(null)
     const email = useRef(null);
     const password = useRef(null);
 
@@ -25,22 +33,29 @@ const Login = ()=>{
         if(!isSignInForm){
             createUserWithEmailAndPassword(auth, email.current.value, password.current.value).then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
-                
+                updateProfile(user, {
+                    displayName: name.current.value,
+                  }).then(() => {
+                    navigate("/browse");
+                    const {uid, email, displayName} = user;
+                    dispatch(addUser({uid: uid, email:email, displayName:displayName}));
+                  }).catch((error) => {
+                    navigate("/error");
+                  });
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                setFormMessage(errorMessage.slice(22,42).toUpperCase() + "!!");
+                setFormMessage(errorMessage);
             });
         } else {
             signInWithEmailAndPassword(auth, email.current.value, password.current.value).then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
-                
+                navigate("/browse");
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                setFormMessage(errorMessage.slice(22,40).toUpperCase() + '!!');
+                setFormMessage(errorMessage);
             });
         }
     }
@@ -53,7 +68,7 @@ const Login = ()=>{
             </div>
             <form onSubmit={(e)=> e.preventDefault()} className="bg-black absolute p-12 w-3/12 my-36 mx-auto right-0 left-0 bg-opacity-90  text-white rounded-md">
                 <h1 className=" p-2 my-4 text-3xl font-bold" >{isSignInForm? "Sign In" : "Sign Up"}</h1>
-                {!isSignInForm=== true && (<input type="text" placeholder="Name" className="p-4 my-2 w-full rounded-md bg-black bg-opacity-20 border border-gray-500"/>) }
+                {!isSignInForm=== true && (<input ref={name} type="text" placeholder="Name" className="p-4 my-2 w-full rounded-md bg-black bg-opacity-20 border border-gray-500"/>) }
                 <input ref={email} type="text" placeholder="Email Address" className="p-4 my-2 w-full rounded-md bg-black bg-opacity-20 border border-gray-500"/>
                 <input ref={password} type="password" placeholder="Password"className="p-4 my-2 w-full rounded-md bg-black bg-opacity-20 border border-gray-500"/>
                 <p className="p-2 text-red-700">{formMessage}</p>
