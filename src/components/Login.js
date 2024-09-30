@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateForm } from "../utils/validate";
+import { auth } from "../utils/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = ()=>{
 
@@ -18,6 +20,29 @@ const Login = ()=>{
     const handleForm = ()=>{
         const message = validateForm(email.current.value, password.current.value);
         setFormMessage(message);  
+        if(message) return ;
+
+        if(!isSignInForm){
+            createUserWithEmailAndPassword(auth, email.current.value, password.current.value).then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setFormMessage(errorMessage.slice(22,42).toUpperCase() + "!!");
+            });
+        } else {
+            signInWithEmailAndPassword(auth, email.current.value, password.current.value).then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setFormMessage(errorMessage.slice(22,40).toUpperCase() + '!!');
+            });
+        }
     }
 
     return (
