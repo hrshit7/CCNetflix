@@ -36,8 +36,7 @@ const Login = ()=>{
                 updateProfile(user, {
                     displayName: name.current.value,
                   }).then(() => {
-                    navigate("/browse");
-                    const {uid, email, displayName} = user;
+                    const {uid, email, displayName} = auth.currentUser;
                     dispatch(addUser({uid: uid, email:email, displayName:displayName}));
                   }).catch((error) => {
                     navigate("/error");
@@ -50,8 +49,6 @@ const Login = ()=>{
         } else {
             signInWithEmailAndPassword(auth, email.current.value, password.current.value).then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
-                navigate("/browse");
             })
             .catch((error) => {
                 const errorMessage = error.message;
