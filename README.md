@@ -20,6 +20,7 @@
 - BugFix: Sign up user displayName and Profile picture update
 - BugFix: if the user is not logged in Redirect / browse to Login Page and Vice -versa
 - BugFix: Unsuscribe to onAuthStateChanged callback
+- Remove hard coded string instead uses constants
 
 # Features
 - Login/Signup 
