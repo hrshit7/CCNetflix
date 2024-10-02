@@ -25,6 +25,8 @@
 - Get Data from TMDB now playing movies list API
 - Makes a slice of movies and dispatch the data from browse
 - build a customHook for fetching purpose for browse component
+- added Maincomponent for showing the upper part of netflix
+- VideoTitle, VideoBG, writes all the logic of fetch data through customHooks
 
 # Features
 - Login/Signup 

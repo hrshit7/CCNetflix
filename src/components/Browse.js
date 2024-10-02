@@ -1,5 +1,7 @@
 import Header from "./Header"
 import useNowPlayingMovies from "../Hooks/useNowPlayingMovies";
+import MainComponent from "./MainComponent";
+import SecondaryComponent from "./SecondaryComponent";
 
 const Browse = ()=>{
 
@@ -9,6 +11,8 @@ const Browse = ()=>{
         <div>
             <div>
                 <Header/>
+                <MainComponent/>
+                <SecondaryComponent/>
             </div>
         </div>
     )
