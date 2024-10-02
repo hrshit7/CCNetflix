@@ -23,6 +23,8 @@
 - Remove hard coded string instead uses constants
 - Register TMDB API & create an app & get access token 
 - Get Data from TMDB now playing movies list API
+- Makes a slice of movies and dispatch the data from browse
+- build a customHook for fetching purpose for browse component
 
 # Features
 - Login/Signup 
