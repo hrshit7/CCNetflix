@@ -25,8 +25,13 @@
 - Get Data from TMDB now playing movies list API
 - Makes a slice of movies and dispatch the data from browse
 - build a customHook for fetching purpose for browse component
-- added Maincomponent for showing the upper part of netflix
+- Create MovieSlice
+- Update store with movie data
+- Plaining mainComponent & secondaryComponent
 - VideoTitle, VideoBG, writes all the logic of fetch data through customHooks
+- also Update store with trailer data 
+- Embeded the youtube video and make it autoplay and mute
+- Tailwind to make Main Component look awesome
 
 # Features
 - Login/Signup 

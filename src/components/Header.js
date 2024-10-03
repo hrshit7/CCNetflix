@@ -37,17 +37,16 @@ const Header = ()=>{
     }, []);
 
     return (
-        <div className="absolute px-4 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between" >
+        <div className="absolute px-4 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between " >
             <div>
                 <img className=" w-56 " src={NETFLIX_LOGO} alt="Netflix-logo"></img>
             </div>
             { user &&
             <div className="flex">
                 <div>
-                    <img className="mt-4 p-1 h-7 m-auto " src={PROFILE} alt="profile"></img>
-                    <h1 className="p-1 text-xl">{"Hello, " + user.displayName}</h1>
+                    <img className="h-10 my-9 mx-6 " src={PROFILE} alt="profile"></img>
                 </div>
-                <button className="m-8 text-red-700 bg-black font-bold rounded-md p-1" onClick={handleSignOut}>Sign Out</button>
+                <button className="my-10 mx-5 text-red-700 bg-white font-bold rounded-md p-1" onClick={handleSignOut}>Sign Out</button>
             </div>
             }
         </div>
