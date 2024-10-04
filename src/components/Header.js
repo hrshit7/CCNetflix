@@ -43,6 +43,7 @@ const Header = ()=>{
             </div>
             { user &&
             <div className="flex">
+                <button className="my-10 mx-5 text-red-700 bg-white font-bold rounded-md p-1" >GPT Search</button>
                 <div>
                     <img className="h-10 my-9 mx-6 " src={PROFILE} alt="profile"></img>
                 </div>

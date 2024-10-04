@@ -5,6 +5,7 @@ import SecondaryComponent from "./SecondaryComponent";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import useUpcomingMovies from "../Hooks/useUpcomingMovies";
 import useTopRatedMovies from "../Hooks/useTopRatedMovies";
+import GptSearch from "./GptSearch";
 
 const Browse = ()=>{
 
@@ -17,6 +18,7 @@ const Browse = ()=>{
         <div>
             <div>
                 <Header/>
+                <GptSearch/>
                 <MainComponent/>
                 <SecondaryComponent/>
             </div>
