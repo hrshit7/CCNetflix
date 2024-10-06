@@ -2,13 +2,14 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { FK } from "./creds";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCJ0vFmvgaHvGkUXKJoBvOg_1ZHNMEdZPE",
+  apiKey: FK,
   authDomain: "ccnetflix-29a02.firebaseapp.com",
   projectId: "ccnetflix-29a02",
   storageBucket: "ccnetflix-29a02.appspot.com",

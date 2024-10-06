@@ -38,6 +38,10 @@
 - TMDB Image url
 - Made the browse page amazing with Tailwind CSS
 - Made customHooks for popular, upcoming, toprated movies and manage them into secondary container
+- GPT search page
+- GPT search bar
+- functionality
+        - Multilingual to the gpt search page
 
 # Features
 - Login/Signup 
