@@ -42,6 +42,7 @@
 - GPT search bar
 - functionality
         - Multilingual to the gpt search page
+- OpenAI api Calls
 
 # Features
 - Login/Signup 
