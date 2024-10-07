@@ -43,6 +43,8 @@
 - functionality
         - Multilingual to the gpt search page
 - OpenAI api Calls
+- .env file
+- memoization
 
 # Features
 - Login/Signup 

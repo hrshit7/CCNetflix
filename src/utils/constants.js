@@ -9,7 +9,7 @@ export const MOVIE_API = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer' + process.env.REACT_APP_TMDBK,
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NThlZmUwMDZhMWJmNDIyYWQ4N2QwOTFmYTBjNGY4NCIsIm5iZiI6MTcyNzg0Nzk0NS4xODgxNTgsInN1YiI6IjY2ZmJmZjdkZjE3Yjg4NzU5OWQ2NDA4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SCNmPMvZvlUi3dWAChDyOGbwVD1ozH5LkWFqvMbvdl0'
     }
   };
 
